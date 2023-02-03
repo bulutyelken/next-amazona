@@ -14,45 +14,40 @@ export default function ProductScreen() {
   }
   return (
     <Layout title={product.name}>
-      <div className="py-2">
+      <div className="pb-2">
         <Link href="/">back to products</Link>
       </div>
-      <div className="flex gap-4">
-        <div className="md:col-span-2">
-          <Image
-            src={product.image}
-            alt={product.name}
-            width={640}
-            height={640}
-          ></Image>
-        </div>
-        <div>
-          <ul>
-            <li>
-              <h1 className="text-lg">{product.name}</h1>
-            </li>
-            <li>Category: {product.category}</li>
-            <li>Brand: {product.brand}</li>
-            <li>
-              {product.rating} of {product.numReviews} reviews
-            </li>
-            <li>Description: {product.description}</li>
-          </ul>
-        </div>
-        <div>
-          <div className="card">
-            <div className="mb-2 flex justify-between">
-              <div>Price</div>
-              <div>${product.price}</div>
+      <div className='flex flex-row gap-4 justify-between'>
+        <Image 
+          src={product.image}
+          alt={product.name}
+          width={640}
+          height={640}
+        ></Image>
+        <div className='flex flex-row container font-semibold gap-1 text-lg justify-between'>
+          <div className='flex flex-col gap-1'>
+            <span className='text-2xl'>{product.name}</span>
+            <span>Category: {product.category}</span>
+            <span>Brand: {product.brand}</span>
+            <span>{product.rating} of {product.numReviews} reviews</span>
+            <span>Description: {product.description}</span>
+          </div>
+          <div className='flex flex-col max-h-44 py-4 gap-4 px-6 w-2/5 rounded-md  border-gray-300 border-solid border'>
+            <div className='flex justify-between'>
+              <span>Price</span>
+              <span>${product.price}</span>
             </div>
-            <div className="mb-2 flex justify-between">
-              <div>Status</div>
-              <div>{product.countInStock > 0 ? 'In stock' : 'Unavailable'}</div>
+            <div className='flex justify-between'>
+              <span>Status</span>
+              <span>In Stock</span>
             </div>
-            <button className="primary-button w-full">Add to cart</button>
+            <button className='primary-button w-full'>
+              Add to cart
+            </button>
           </div>
         </div>
       </div>
+        
     </Layout>
   );
 }
